@@ -6,17 +6,17 @@ import { useDqlQuery } from '@dynatrace-sdk/react-hooks';
 export const Task2 = () => {
     const [price, setPrice] = useState({});
 
-    const url = `https://dt-url.net/ec2prices`;
-    try {
-        fetch(url).then(response => {
-        if(!response.ok) {
-            console.log(response.status.toString());
-        }
-        setPrice(response.json());
-    });
-    } catch (error) { 
-        console.log(error);
-    }
+    // const url = `https://dt-url.net/ec2prices`;
+    // try {
+    //     fetch(url).then(response => {
+    //     if(!response.ok) {
+    //         console.log(response.status.toString());
+    //     }
+    //     setPrice(response.json());
+    // });
+    // } catch (error) { 
+    //     console.log(error);
+    // }
     
     const results = useDqlQuery({
         body: {

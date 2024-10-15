@@ -39,22 +39,28 @@ export const Home = () => {
           name="Explore data"
         />
         <Card
-          href="https://dt-url.net/developers"
+          href="/Task1"
+          inAppLink
           imgSrc={
-            theme === "light"
-              ? "./assets/devportal.png"
-              : "./assets/devportal_dark.png"
+            theme === "light" ? "./assets/data.png" : "./assets/data_dark.png"
           }
-          name="Dynatrace Developer"
+          name="Task1"
         />
         <Card
-          href="https://dt-url.net/devcommunity"
+          href="/Task2"
+          inAppLink
           imgSrc={
-            theme === "light"
-              ? "./assets/community.png"
-              : "./assets/community_dark.png"
+            theme === "light" ? "./assets/data.png" : "./assets/data_dark.png"
           }
-          name="Developer Community"
+          name="Task2"
+        />
+        <Card
+          href="/Task3"
+          inAppLink
+          imgSrc={
+            theme === "light" ? "./assets/data.png" : "./assets/data_dark.png"
+          }
+          name="Task3"
         />
       </Flex>
     </Flex>

@@ -5,10 +5,11 @@
     "version": "0.0.0",
     "description": "A starting project with routing, fetching data, and charting",
     "id": "my.bernard.aeq",
-    "scopes": [{ "name": "storage:logs:read", "comment": "default template" },
-               { "name": "storage:buckets:read", "comment": "default template" },
-               { "name": "storage:metrics:read", "comment": "Allows to read metrics" },
-               { "name": "storage:entities:read", "comment": "Allows to read entities" }
-              ]
+    "scopes": [
+      { "name": "storage:logs:read", "comment": "default template" },
+      { "name": "storage:buckets:read", "comment": "default template" },
+      { "name": "storage:metrics:read", "comment": "Allows to read metrics" },
+      { "name": "storage:entities:read", "comment": "Allows to read entities" }
+    ]
   }
 }

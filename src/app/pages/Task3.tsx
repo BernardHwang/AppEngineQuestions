@@ -63,9 +63,7 @@ export const Task3 = () => {
         item != null && price != undefined && item.awsInstanceType != null ? totalCost += price[(item.awsInstanceType).toString()] : 0
     });
 
-    const intentPayload: IntentPayload = {
-        'dt.query': 'fetch logs',
-    };
+    
 
     
 
@@ -84,6 +82,10 @@ export const Task3 = () => {
                             | filter dt.entity.ec2_instance ==  "${row.id}" `
                         },
                     });
+
+                    const intentPayload: IntentPayload = {
+                        'dt.query': EC2InstanceUsage.toString(),
+                    };
                 
                     return (
                         <Flex flexDirection="column">

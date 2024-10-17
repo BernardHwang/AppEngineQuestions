@@ -30,14 +30,6 @@ export const Home = () => {
       </Paragraph>
 
       <Flex gap={48} paddingTop={64} flexFlow="wrap">
-      <Card
-          href="/Data"
-          inAppLink
-          imgSrc={
-            theme === "light" ? "./assets/data.png" : "./assets/data_dark.png"
-          }
-          name="Data"
-        />
         <Card
           href="/Task1"
           inAppLink

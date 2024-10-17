@@ -70,8 +70,16 @@ export const Task2 = () => {
         <Flex width='100%' flexDirection='column' justifyContent='center' gap={16}>
            <Heading level={3}>EC2 instance cost overview</Heading>
            <Text>Your EC2 instance costs are <Strong>${totalCost.toFixed(2)}</Strong> per hour</Text>
-           {results.isLoading && <ProgressCircle/>}
-           {results.data && (
+           <Flex width='100%' flexDirection='row' justifyContent='center'>
+                <Button color='primary' variant='emphasized' width='25%' onClick={showTable}>
+                    Show Table
+                </Button>
+                <Button color='primary' variant='emphasized' width='25%' onClick={unshowTable}>
+                    Unshow Table
+                </Button>
+           </Flex>
+           {results.isLoading  && <ProgressCircle/>}
+           {results.data && table && (
             <DataTable data={results.data.records} columns={columns} sortable resizable></DataTable>
            )}
         </Flex>

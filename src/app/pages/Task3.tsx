@@ -81,6 +81,7 @@ export const Task3 = () => {
                     return (
                         <Flex flexDirection="column">
                             <Heading level={4}>CPU Usage</Heading>
+                            {EC2InstanceUsage.isLoading && <ProgressCircle/>}
                             {EC2InstanceUsage.data?.records && (
                             <TimeseriesChart data={convertToTimeseries(EC2InstanceUsage.data?.records, EC2InstanceUsage.data?.types)}> 
                                 <TimeseriesChart.Legend hidden={true} />

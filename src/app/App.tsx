@@ -1,12 +1,11 @@
-import { AppHeader, Page } from "@dynatrace/strato-components-preview";
+import { Page } from "@dynatrace/strato-components-preview";
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Home } from "./pages/Home";
 import { Task1 } from "./pages/Task1";
 import { Task2 } from "./pages/Task2";
 import { Task3 } from "./pages/Task3";
-import { Data } from "./pages/Data";
 
 export const App = () => {
   return (

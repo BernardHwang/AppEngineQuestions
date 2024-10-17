@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Heading, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
-import { DataTable, TableColumn } from '@dynatrace/strato-components-preview';
+import { Button, Flex, Heading, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
+import { DataTable, FeatureHighlight, TableColumn } from '@dynatrace/strato-components-preview';
 import { useDqlQuery } from '@dynatrace-sdk/react-hooks';
 import { functions } from '@dynatrace-sdk/app-utils'
 
 export const Task2 = () => {
     const [price, setPrice] = useState();
+    const [table, setTable] = useState(false);
     let totalCost = 0;
+
+    const showTable = () => {
+        setTable(true);
+    }
+    
+    const unshowTable = () => {
+        setTable(false)
+    }
 
     const getPrice = async () => {
         const response = await functions.call('get-price', { data: { active: true } });
@@ -46,9 +55,10 @@ export const Task2 = () => {
             autoWidth: true,
             cell: ({row}) => {
                 const instanceType = row.original.awsInstanceType;
-                return price?.[instanceType] || 'N/A';
+                return (<DataTable.Cell>{price?.[instanceType] || 'N/A'}</DataTable.Cell>);
             },
-            columnType: 'number'
+            columnType: 'number',
+            disableSortBy: true
         }
     ]
 
@@ -56,26 +66,13 @@ export const Task2 = () => {
         item != null && price != undefined && item.awsInstanceType != null ? totalCost += price[(item.awsInstanceType).toString()] : 0
     });
 
-    // const [sortChangeMessage, setSortChangeMessage] = useState(
-    //     'onSortChange: unset'
-    //   );
-    //   const onSortChange = (columnId, direction) => {
-    //     setSortChangeMessage(
-    //       direction === 'unset'
-    //         ? 'onSortChange: unset'
-    //         : `onSortChange: columnId :: ${columnId}, direction :: ${direction}`
-    //     );
-    //   };
-
     return (
         <Flex width='100%' flexDirection='column' justifyContent='center' gap={16}>
            <Heading level={3}>EC2 instance cost overview</Heading>
            <Text>Your EC2 instance costs are <Strong>${totalCost.toFixed(2)}</Strong> per hour</Text>
            {results.isLoading && <ProgressCircle/>}
            {results.data && (
-            <DataTable data={results.data.records} columns={columns} 
-            // onSortChange={onSortChange} enableDefaultSort={true} sortable 
-            ></DataTable>
+            <DataTable data={results.data.records} columns={columns} sortable resizable></DataTable>
            )}
         </Flex>
     )

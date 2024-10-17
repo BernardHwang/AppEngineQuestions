@@ -34,7 +34,9 @@ export const Task1 = () => {
         <Heading level={3}>EC2 instance cost overview</Heading>
         {results.isLoading && <ProgressCircle />}
         {results.data && (
-          <DataTable data={results.data.records} columns={columns}></DataTable>
+          <DataTable data={results.data.records} columns={columns} sortable resizable>
+            <DataTable.Pagination/>
+          </DataTable>
         )}
       </Flex>
     );

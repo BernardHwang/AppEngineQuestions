@@ -51,9 +51,10 @@ export const Task3 = () => {
             autoWidth: true,
             cell: ({row}) => {
                 const instanceType = row.original.awsInstanceType;
-                return price?.[instanceType] || 'N/A';
+                return (<DataTable.Cell>{price?.[instanceType] || 'N/A'}</DataTable.Cell>);
             },
-            columnType: 'number'
+            columnType: 'number',
+            disableSortBy: true
         }
     ]
 
@@ -67,7 +68,7 @@ export const Task3 = () => {
            <Text>Your EC2 instance costs are <Strong>${totalCost.toFixed(2)}</Strong> per hour</Text>
            {results.isLoading && <ProgressCircle/>}
            {results.data && (
-            <DataTable data={results.data.records} columns={columns}>
+            <DataTable data={results.data.records} columns={columns} sortable resizable>
                 <DataTable.ExpandableRow>
                 {({ row }) => {
                     const EC2InstanceUsage = useDqlQuery({

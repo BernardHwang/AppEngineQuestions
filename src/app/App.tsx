@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Task1 } from "./pages/Task1";
 import { Task2 } from "./pages/Task2";
 import { Task3 } from "./pages/Task3";
+import { Data } from "./pages/Data";
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
       <Page.Main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Data" element={<Data />} />
           <Route path="/Task1" element={<Task1 />} />
           <Route path="/Task2" element={<Task2 />} />
           <Route path="/Task3" element={<Task3 />} />

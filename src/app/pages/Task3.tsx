@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Heading, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
+import { Flex, Heading, IntentButton, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
 import { DataTable, TableColumn, TABLE_EXPANDABLE_DEFAULT_COLUMN, TimeseriesChart, convertToTimeseries } from '@dynatrace/strato-components-preview';
 import { useDqlQuery } from '@dynatrace-sdk/react-hooks';
 import { functions } from '@dynatrace-sdk/app-utils'
+import { IntentPayload } from '@dynatrace-sdk/navigation';
 
 export const Task3 = () => {
     const [price, setPrice] = useState();
@@ -62,6 +63,12 @@ export const Task3 = () => {
         item != null && price != undefined && item.awsInstanceType != null ? totalCost += price[(item.awsInstanceType).toString()] : 0
     });
 
+    const intentPayload: IntentPayload = {
+        'dt.query': 'fetch logs',
+    };
+
+    
+
     return (
         <Flex width='100%' flexDirection='column' justifyContent='center' gap={16}>
            <Heading level={3}>EC2 instance cost overview</Heading>
@@ -80,6 +87,9 @@ export const Task3 = () => {
                 
                     return (
                         <Flex flexDirection="column">
+                            <IntentButton payload={intentPayload}>
+                                Open EC2 Instance with...
+                            </IntentButton>
                             <Heading level={4}>CPU Usage</Heading>
                             {EC2InstanceUsage.isLoading && <ProgressCircle/>}
                             {EC2InstanceUsage.data?.records && (

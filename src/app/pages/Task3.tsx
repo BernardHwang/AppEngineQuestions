@@ -63,10 +63,6 @@ export const Task3 = () => {
         item != null && price != undefined && item.awsInstanceType != null ? totalCost += price[(item.awsInstanceType).toString()] : 0
     });
 
-    
-
-    
-
     return (
         <Flex width='100%' flexDirection='column' justifyContent='center' gap={16}>
            <Heading level={3}>EC2 instance cost overview</Heading>

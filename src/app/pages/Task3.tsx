@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Heading, IntentButton, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
+import { Flex, Heading, IntentButton, ProgressBar, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
 import { DataTable, TableColumn, TABLE_EXPANDABLE_DEFAULT_COLUMN, TimeseriesChart, convertToTimeseries } from '@dynatrace/strato-components-preview';
 import { useDqlQuery } from '@dynatrace-sdk/react-hooks';
 import { functions } from '@dynatrace-sdk/app-utils'
@@ -89,7 +89,7 @@ export const Task3 = () => {
                                 Open EC2 Instance with...
                             </IntentButton>
                             <Heading level={4}>CPU Usage</Heading>
-                            {EC2InstanceUsage.isLoading && <ProgressCircle/>}
+                            {EC2InstanceUsage.isLoading && <ProgressBar/>}
                             {EC2InstanceUsage.data?.records && (
                             <TimeseriesChart data={convertToTimeseries(EC2InstanceUsage.data?.records, EC2InstanceUsage.data?.types)}> 
                                 <TimeseriesChart.Legend hidden={true} />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Flex, Heading, IntentButton, ProgressBar, ProgressCircle, Strong, Text } from '@dynatrace/strato-components';
 import { DataTable, TableColumn, TABLE_EXPANDABLE_DEFAULT_COLUMN, TimeseriesChart, convertToTimeseries } from '@dynatrace/strato-components-preview';
 import { useDqlQuery } from '@dynatrace-sdk/react-hooks';
-import { functions } from '@dynatrace-sdk/app-utils'
+import { functions } from '@dynatrace-sdk/app-utils';
 import { IntentPayload } from '@dynatrace-sdk/navigation';
 
 export const Task3 = () => {

@@ -8,8 +8,6 @@ import { IntentPayload } from '@dynatrace-sdk/navigation';
 export const Task3 = () => {
   const [price, setPrice] = useState();
   let totalCost = 0;
-  const name = "EC2_INSTANCE-56ED6F3F544C46E7"
-
 
   const getPrice = async () => {
     const response = await functions.call('get-price', { data: { active: true } });
